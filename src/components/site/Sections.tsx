@@ -52,16 +52,18 @@ export function SunRays({ className = "" }: { className?: string }) {
         {rays.map((_, i) => {
           const a = (Math.PI * i) / 16;
           const len = i % 2 === 0 ? 48 : 34;
-          const x1 = 100 - Math.cos(a) * 46;
-          const y1 = 100 - Math.sin(a) * 46;
-          const x2 = 100 - Math.cos(a) * (46 + len);
-          const y2 = 100 - Math.sin(a) * (46 + len);
+          const r = (n: number) => Math.round(n * 100) / 100;
+          const x1 = r(100 - Math.cos(a) * 46);
+          const y1 = r(100 - Math.sin(a) * 46);
+          const x2 = r(100 - Math.cos(a) * (46 + len));
+          const y2 = r(100 - Math.sin(a) * (46 + len));
           return (
             <path
               key={i}
-              d={`M ${x1} ${y1} L ${x2 - 1.6} ${y2} L ${x2 + 1.6} ${y2} Z`}
+              d={`M ${x1} ${y1} L ${r(x2 - 1.6)} ${y2} L ${r(x2 + 1.6)} ${y2} Z`}
               opacity={i % 2 === 0 ? 1 : 0.75}
             />
+
           );
         })}
         <path d="M 62 100 A 38 38 0 0 1 138 100 Z" fillOpacity="0.18" />
