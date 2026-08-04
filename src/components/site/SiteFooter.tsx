@@ -12,6 +12,9 @@ export function SiteFooter() {
               <SunRays className="h-9 w-16 text-accent" />
               <span className="font-display text-2xl">Suryanta Energy</span>
             </div>
+            <p className="mt-2 font-display text-lg text-accent">
+              The best solar panel company in Jaipur
+            </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
               Rooftop solar design, installation and service for homes, housing societies and
               businesses across Jaipur and Rajasthan.
@@ -20,9 +23,9 @@ export function SiteFooter() {
               src={logo.url}
               alt="Suryanta Energy logo"
               loading="lazy"
-              width={160}
-              height={160}
-              className="mt-6 h-16 w-auto rounded-lg bg-background p-2"
+              width={320}
+              height={320}
+              className="mt-6 h-32 w-auto"
             />
           </div>
 

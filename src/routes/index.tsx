@@ -132,7 +132,7 @@ function Home() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-dawn text-primary-foreground">
-        <SunRays className="pointer-events-none absolute -top-10 left-1/2 h-72 w-[46rem] -translate-x-1/2 text-primary-foreground/10" />
+        
         <Container className="relative grid gap-12 py-16 md:grid-cols-[1.05fr_1fr] md:items-center md:py-24">
           <div>
             <p className="eyebrow text-accent">Jaipur · Rajasthan</p>
