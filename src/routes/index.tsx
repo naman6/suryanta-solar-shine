@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Rooftop solar for homes, housing societies and businesses in Jaipur. Subsidy paperwork, net metering and 25-year performance panels — rated 5.0 on Google.",
+          "Rooftop solar for homes, housing societies and businesses in Jaipur. Subsidy paperwork, net metering and 25 year performance panels — rated 5.0 on Google.",
       },
       { property: "og:title", content: "Suryanta Energy | Rooftop Solar in Jaipur" },
       {
@@ -45,21 +45,21 @@ const OFFERINGS = [
     title: "Homes",
     image: heroRooftop,
     copy: "Save up to 90% on your household electricity bill with a rooftop system sized to your family's usage.",
-    points: ["1 kW – 10 kW systems", "PM Surya Ghar subsidy assistance", "Net metering handled end-to-end"],
+    points: ["1 kW to 10 kW systems", "PM Surya Ghar subsidy assistance", "Net metering handled end to end"],
   },
   {
     id: "societies",
     title: "Housing Societies",
     image: housingSociety,
-    copy: "Slash common-area power costs for lifts, pumps and lighting, and raise the value of every flat.",
-    points: ["Common-area load audit", "Committee-friendly proposals", "Single-point AMC for the society"],
+    copy: "Slash common area power costs for lifts, pumps and lighting, and raise the value of every flat.",
+    points: ["Common area load audit", "Committee friendly proposals", "Single point AMC for the society"],
   },
   {
     id: "commercial",
     title: "Commercial & Industrial",
     image: commercialSolar,
     copy: "Factories, warehouses and showrooms across Rajasthan — engineered for generation and uptime.",
-    points: ["CAPEX or zero-CAPEX models", "Accelerated depreciation benefit", "Remote generation monitoring"],
+    points: ["CAPEX or zero CAPEX models", "Accelerated depreciation benefit", "Remote generation monitoring"],
   },
 ];
 
@@ -70,17 +70,17 @@ const PILLARS = [
     copy: "Systems sized on your real consumption, with the generation and payback figures put in writing before you pay.",
   },
   {
-    title: "Hassle-free Process",
+    title: "Hassle free Process",
     image: installTeam,
     copy: "Survey, subsidy, DISCOM approvals, net metering and installation — handled directly by our own Jaipur crew.",
   },
   {
-    title: "Storm-proof Structure",
+    title: "Storm proof Structure",
     image: commercialSolar,
-    copy: "Hot-dip galvanised mounting built for Rajasthan's summer heat, dust storms and high desert winds.",
+    copy: "Hot dip galvanised mounting built for Rajasthan's summer heat, dust storms and high desert winds.",
   },
   {
-    title: "Reliable After-sales Service",
+    title: "Reliable After sales Service",
     image: housingSociety,
     copy: "Scheduled cleaning, performance checks and a local number that actually picks up, year after year.",
   },
@@ -89,15 +89,15 @@ const PILLARS = [
 const TRUST = [
   {
     title: "Bills down, not comfort",
-    copy: "Systems are sized on twelve months of your real consumption — not a generic per-kW guess.",
+    copy: "Systems are sized on twelve months of your real consumption — not a generic per kW guess.",
   },
   {
     title: "Built for Rajasthan heat & wind",
-    copy: "Hot-dip galvanised structures and high-temperature-coefficient modules that hold output through peak summer.",
+    copy: "Hot dip galvanised structures and high temperature coefficient modules that hold output through peak summer.",
   },
   {
     title: "Paperwork is our job",
-    copy: "Subsidy application, DISCOM approvals and net-metering inspection are handled by our team, not yours.",
+    copy: "Subsidy application, DISCOM approvals and net metering inspection are handled by our team, not yours.",
   },
   {
     title: "Service that answers",
@@ -106,9 +106,9 @@ const TRUST = [
 ];
 
 const PROCESS = [
-  { n: "01", t: "Free site visit", d: "We measure shadow-free roof area, inspect your sanctioned load and read your last bills." },
+  { n: "01", t: "Free site visit", d: "We measure shadow free roof area, inspect your sanctioned load and read your last bills." },
   { n: "02", t: "Design & transparent quote", d: "Layout, generation estimate, subsidy applicable and payback period — in writing." },
-  { n: "03", t: "Approvals & subsidy", d: "We file the DISCOM application, net-metering request and PM Surya Ghar subsidy claim." },
+  { n: "03", t: "Approvals & subsidy", d: "We file the DISCOM application, net metering request and PM Surya Ghar subsidy claim." },
   { n: "04", t: "Installation", d: "Structure, modules, inverter and safety wiring completed in a few days by our own crew." },
   { n: "05", t: "Commissioning & service", d: "Meter change, generation handover and ongoing cleaning plus performance checks." },
 ];
@@ -116,7 +116,7 @@ const PROCESS = [
 const FAQS = [
   {
     q: "How much roof area do I need?",
-    a: "Roughly 80–100 sq ft of shadow-free roof per kW. A typical 3 kW home system needs about 300 sq ft, which most independent Jaipur houses have on the terrace.",
+    a: "Roughly 80 to 100 sq ft of shadow free roof per kW. A typical 3 kW home system needs about 300 sq ft, which most independent Jaipur houses have on the terrace.",
   },
   {
     q: "Do you handle the government subsidy?",
@@ -124,11 +124,11 @@ const FAQS = [
   },
   {
     q: "What happens on cloudy days or at night?",
-    a: "On-grid systems stay connected to the grid, so you draw power normally when the sun is down. Surplus units exported during the day are credited through net metering.",
+    a: "On grid systems stay connected to the grid, so you draw power normally when the sun is down. Surplus units exported during the day are credited through net metering.",
   },
   {
     q: "How long does installation take?",
-    a: "A residential installation is usually completed in 2–4 days once material is on site. Approvals and meter replacement by the DISCOM add a few weeks.",
+    a: "A residential installation is usually completed in 2 to 4 days once material is on site. Approvals and meter replacement by the DISCOM add a few weeks.",
   },
   {
     q: "Which areas do you serve?",
@@ -220,7 +220,7 @@ function Home() {
             ["25 yrs", "Panel performance warranty"],
             ["5.0 ★", `Google rating (${GOOGLE_REVIEW_COUNT} reviews)`],
             ["All Rajasthan", "Service coverage"],
-            ["End-to-end", "Subsidy & net metering"],
+            ["End to end", "Subsidy & net metering"],
           ].map(([big, small]) => (
             <div key={small} className="px-2 text-center">
               <p className="font-display text-2xl text-primary sm:text-3xl">{big}</p>
