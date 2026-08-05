@@ -1,5 +1,5 @@
 import { Container } from "./Sections";
-import logo from "@/assets/suryanta-logo.png.asset.json";
+import logo from "@/assets/suryanta-logo.png";
 import { ADDRESS, MAPS_URL, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "@/lib/business";
 
 export function SiteFooter() {
