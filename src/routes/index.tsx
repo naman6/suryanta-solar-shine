@@ -45,21 +45,21 @@ const OFFERINGS = [
     title: "Homes",
     image: heroRooftop,
     copy: "Save up to 90% on your household electricity bill with a rooftop system sized to your family's usage.",
-    points: ["1 kW – 10 kW systems", "PM Surya Ghar subsidy assistance", "Net metering handled end-to-end"],
+    points: ["1 kW to 10 kW systems", "PM Surya Ghar subsidy assistance", "Net metering handled end to end"],
   },
   {
     id: "societies",
     title: "Housing Societies",
     image: housingSociety,
-    copy: "Slash common-area power costs for lifts, pumps and lighting, and raise the value of every flat.",
-    points: ["Common-area load audit", "Committee-friendly proposals", "Single-point AMC for the society"],
+    copy: "Slash common area power costs for lifts, pumps and lighting, and raise the value of every flat.",
+    points: ["Common area load audit", "Committee-friendly proposals", "Single point AMC for the society"],
   },
   {
     id: "commercial",
     title: "Commercial & Industrial",
     image: commercialSolar,
     copy: "Factories, warehouses and showrooms across Rajasthan — engineered for generation and uptime.",
-    points: ["CAPEX or zero-CAPEX models", "Accelerated depreciation benefit", "Remote generation monitoring"],
+    points: ["CAPEX or zero CAPEX models", "Accelerated depreciation benefit", "Remote generation monitoring"],
   },
 ];
 
@@ -70,17 +70,17 @@ const PILLARS = [
     copy: "Systems sized on your real consumption, with the generation and payback figures put in writing before you pay.",
   },
   {
-    title: "Hassle-free Process",
+    title: "Hassle free Process",
     image: installTeam,
     copy: "Survey, subsidy, DISCOM approvals, net metering and installation — handled directly by our own Jaipur crew.",
   },
   {
-    title: "Storm-proof Structure",
+    title: "Storm proof Structure",
     image: commercialSolar,
-    copy: "Hot-dip galvanised mounting built for Rajasthan's summer heat, dust storms and high desert winds.",
+    copy: "Hot dip galvanised mounting built for Rajasthan's summer heat, dust storms and high desert winds.",
   },
   {
-    title: "Reliable After-sales Service",
+    title: "Reliable After sales Service",
     image: housingSociety,
     copy: "Scheduled cleaning, performance checks and a local number that actually picks up, year after year.",
   },
