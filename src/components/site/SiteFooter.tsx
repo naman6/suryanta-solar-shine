@@ -1,4 +1,4 @@
-import { Container, SunRays } from "./Sections";
+import { Container } from "./Sections";
 import logo from "@/assets/suryanta-logo.png.asset.json";
 import { ADDRESS, MAPS_URL, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "@/lib/business";
 
@@ -9,7 +9,13 @@ export function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <SunRays className="h-9 w-16 text-accent" />
+              <img
+                src={logo.url}
+                alt="Suryanta Energy logo"
+                width={320}
+                height={320}
+                className="h-14 w-auto mix-blend-screen"
+              />
               <span className="font-display text-2xl">Suryanta Energy</span>
             </div>
             <p className="mt-2 font-display text-lg text-accent">
@@ -19,14 +25,6 @@ export function SiteFooter() {
               Rooftop solar design, installation and service for homes, housing societies and
               businesses across Jaipur and Rajasthan.
             </p>
-            <img
-              src={logo.url}
-              alt="Suryanta Energy logo"
-              loading="lazy"
-              width={320}
-              height={320}
-              className="mt-6 h-32 w-auto"
-            />
           </div>
 
           <div>

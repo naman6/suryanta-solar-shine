@@ -63,6 +63,29 @@ const OFFERINGS = [
   },
 ];
 
+const PILLARS = [
+  {
+    title: "Guaranteed Savings",
+    image: heroRooftop,
+    copy: "Systems sized on your real consumption, with the generation and payback figures put in writing before you pay.",
+  },
+  {
+    title: "Hassle-free Process",
+    image: installTeam,
+    copy: "Survey, subsidy, DISCOM approvals, net metering and installation — handled directly by our own Jaipur crew.",
+  },
+  {
+    title: "Storm-proof Structure",
+    image: commercialSolar,
+    copy: "Hot-dip galvanised mounting built for Rajasthan's summer heat, dust storms and high desert winds.",
+  },
+  {
+    title: "Reliable After-sales Service",
+    image: housingSociety,
+    copy: "Scheduled cleaning, performance checks and a local number that actually picks up, year after year.",
+  },
+];
+
 const TRUST = [
   {
     title: "Bills down, not comfort",
@@ -206,6 +229,32 @@ function Home() {
           ))}
         </Container>
       </section>
+
+      {/* Pillars */}
+      <section className="py-20">
+        <Container>
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {PILLARS.map((p) => (
+              <div key={p.title} className="text-center">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  width={1200}
+                  height={900}
+                  className="mx-auto aspect-square w-full max-w-[15rem] rounded-[var(--radius-2xl)] object-cover shadow-[var(--shadow-soft)]"
+                />
+                <h3 className="mt-6 text-2xl">{p.title}</h3>
+                <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
+                  {p.copy}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+
 
       {/* Offerings */}
       <section className="py-20">
