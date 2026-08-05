@@ -31,7 +31,7 @@ export function SavingsCalculator() {
           <h3 className="mt-3 text-2xl sm:text-3xl">What does your roof earn?</h3>
           <p className="mt-2 text-sm text-muted-foreground">
             Slide your average monthly electricity bill to see an indicative system size and
-            savings. Final numbers come from a free on-site survey.
+            savings. Final numbers come from a free on site survey.
           </p>
 
           <label htmlFor="bill" className="mt-8 block text-sm font-medium text-foreground">
