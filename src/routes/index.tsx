@@ -89,15 +89,15 @@ const PILLARS = [
 const TRUST = [
   {
     title: "Bills down, not comfort",
-    copy: "Systems are sized on twelve months of your real consumption — not a generic per-kW guess.",
+    copy: "Systems are sized on twelve months of your real consumption — not a generic per kW guess.",
   },
   {
     title: "Built for Rajasthan heat & wind",
-    copy: "Hot-dip galvanised structures and high-temperature-coefficient modules that hold output through peak summer.",
+    copy: "Hot dip galvanised structures and high temperature coefficient modules that hold output through peak summer.",
   },
   {
     title: "Paperwork is our job",
-    copy: "Subsidy application, DISCOM approvals and net-metering inspection are handled by our team, not yours.",
+    copy: "Subsidy application, DISCOM approvals and net metering inspection are handled by our team, not yours.",
   },
   {
     title: "Service that answers",
@@ -106,9 +106,9 @@ const TRUST = [
 ];
 
 const PROCESS = [
-  { n: "01", t: "Free site visit", d: "We measure shadow-free roof area, inspect your sanctioned load and read your last bills." },
+  { n: "01", t: "Free site visit", d: "We measure shadow free roof area, inspect your sanctioned load and read your last bills." },
   { n: "02", t: "Design & transparent quote", d: "Layout, generation estimate, subsidy applicable and payback period — in writing." },
-  { n: "03", t: "Approvals & subsidy", d: "We file the DISCOM application, net-metering request and PM Surya Ghar subsidy claim." },
+  { n: "03", t: "Approvals & subsidy", d: "We file the DISCOM application, net metering request and PM Surya Ghar subsidy claim." },
   { n: "04", t: "Installation", d: "Structure, modules, inverter and safety wiring completed in a few days by our own crew." },
   { n: "05", t: "Commissioning & service", d: "Meter change, generation handover and ongoing cleaning plus performance checks." },
 ];
@@ -116,7 +116,7 @@ const PROCESS = [
 const FAQS = [
   {
     q: "How much roof area do I need?",
-    a: "Roughly 80–100 sq ft of shadow-free roof per kW. A typical 3 kW home system needs about 300 sq ft, which most independent Jaipur houses have on the terrace.",
+    a: "Roughly 80 to 100 sq ft of shadow free roof per kW. A typical 3 kW home system needs about 300 sq ft, which most independent Jaipur houses have on the terrace.",
   },
   {
     q: "Do you handle the government subsidy?",
@@ -128,7 +128,7 @@ const FAQS = [
   },
   {
     q: "How long does installation take?",
-    a: "A residential installation is usually completed in 2–4 days once material is on site. Approvals and meter replacement by the DISCOM add a few weeks.",
+    a: "A residential installation is usually completed in 2 to 4 days once material is on site. Approvals and meter replacement by the DISCOM add a few weeks.",
   },
   {
     q: "Which areas do you serve?",
