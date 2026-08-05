@@ -207,6 +207,32 @@ function Home() {
         </Container>
       </section>
 
+      {/* Pillars */}
+      <section className="py-20">
+        <Container>
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {PILLARS.map((p) => (
+              <div key={p.title} className="text-center">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  width={1200}
+                  height={900}
+                  className="mx-auto aspect-square w-full max-w-[15rem] rounded-[var(--radius-2xl)] object-cover shadow-[var(--shadow-soft)]"
+                />
+                <h3 className="mt-6 text-2xl">{p.title}</h3>
+                <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
+                  {p.copy}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+
+
       {/* Offerings */}
       <section className="py-20">
         <Container>
