@@ -309,7 +309,7 @@ function Home() {
           <div>
             <img
               src={installTeam}
-              alt="Suryanta Energy technicians installing a rooftop solar mounting structure"
+              alt="Rooftop solar panels under a clear blue sky"
               loading="lazy"
               width={1200}
               height={900}
