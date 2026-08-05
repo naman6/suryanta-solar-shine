@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Rooftop solar for homes, housing societies and businesses in Jaipur. Subsidy paperwork, net metering and 25-year performance panels — rated 5.0 on Google.",
+          "Rooftop solar for homes, housing societies and businesses in Jaipur. Subsidy paperwork, net metering and 25 year performance panels — rated 5.0 on Google.",
       },
       { property: "og:title", content: "Suryanta Energy | Rooftop Solar in Jaipur" },
       {
