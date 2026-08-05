@@ -25,14 +25,6 @@ export function SiteFooter() {
               Rooftop solar design, installation and service for homes, housing societies and
               businesses across Jaipur and Rajasthan.
             </p>
-            <img
-              src={logo.url}
-              alt="Suryanta Energy logo"
-              loading="lazy"
-              width={320}
-              height={320}
-              className="mt-6 h-32 w-auto"
-            />
           </div>
 
           <div>
