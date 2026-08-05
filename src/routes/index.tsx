@@ -63,6 +63,29 @@ const OFFERINGS = [
   },
 ];
 
+const PILLARS = [
+  {
+    title: "Guaranteed Savings",
+    image: heroRooftop,
+    copy: "Systems sized on your real consumption, with the generation and payback figures put in writing before you pay.",
+  },
+  {
+    title: "Hassle-free Process",
+    image: installTeam,
+    copy: "Survey, subsidy, DISCOM approvals, net metering and installation — handled directly by our own Jaipur crew.",
+  },
+  {
+    title: "Storm-proof Structure",
+    image: commercialSolar,
+    copy: "Hot-dip galvanised mounting built for Rajasthan's summer heat, dust storms and high desert winds.",
+  },
+  {
+    title: "Reliable After-sales Service",
+    image: housingSociety,
+    copy: "Scheduled cleaning, performance checks and a local number that actually picks up, year after year.",
+  },
+];
+
 const TRUST = [
   {
     title: "Bills down, not comfort",
