@@ -68,7 +68,7 @@
 
 :root {
   --radius: 0.875rem;
-  --font-display: "DM Serif Display", Georgia, serif;
+  --font-display: "Instrument Serif", Georgia, serif;
   --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
 
   --background: oklch(0.995 0.004 95);
@@ -176,6 +176,8 @@
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.015em;
+    transform: scaleY(0.97);
+    transform-origin: center;
   }
 }
 
