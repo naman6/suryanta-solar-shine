@@ -18,7 +18,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
       <Container className="flex h-24 items-center justify-between gap-6 py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo} alt="Suryanta Energy" className="h-22 w-auto" width={280} height={88} />
+          <img src={logo} alt="Suryanta Energy" className="h-32 w-auto" width={280} height={88} />
         </a>
 
         <nav className="hidden items-center gap-7 md:flex">
