@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "@/assets/suryanta-logo.png.asset.json";
+import logo from "@/assets/suryanta-logo.png";
 import { Container } from "./Sections";
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "@/lib/business";
 
