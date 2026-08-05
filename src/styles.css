@@ -68,7 +68,7 @@
 
 :root {
   --radius: 0.875rem;
-  --font-display: "Instrument Serif", Georgia, serif;
+  --font-display: "DM Serif Display", Georgia, serif;
   --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
 
   --background: oklch(0.995 0.004 95);
