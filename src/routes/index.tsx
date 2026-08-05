@@ -52,7 +52,7 @@ const OFFERINGS = [
     title: "Housing Societies",
     image: housingSociety,
     copy: "Slash common area power costs for lifts, pumps and lighting, and raise the value of every flat.",
-    points: ["Common area load audit", "Committee-friendly proposals", "Single point AMC for the society"],
+    points: ["Common area load audit", "Committee friendly proposals", "Single point AMC for the society"],
   },
   {
     id: "commercial",
@@ -124,7 +124,7 @@ const FAQS = [
   },
   {
     q: "What happens on cloudy days or at night?",
-    a: "On-grid systems stay connected to the grid, so you draw power normally when the sun is down. Surplus units exported during the day are credited through net metering.",
+    a: "On grid systems stay connected to the grid, so you draw power normally when the sun is down. Surplus units exported during the day are credited through net metering.",
   },
   {
     q: "How long does installation take?",
@@ -220,7 +220,7 @@ function Home() {
             ["25 yrs", "Panel performance warranty"],
             ["5.0 ★", `Google rating (${GOOGLE_REVIEW_COUNT} reviews)`],
             ["All Rajasthan", "Service coverage"],
-            ["End-to-end", "Subsidy & net metering"],
+            ["End to end", "Subsidy & net metering"],
           ].map(([big, small]) => (
             <div key={small} className="px-2 text-center">
               <p className="font-display text-2xl text-primary sm:text-3xl">{big}</p>
