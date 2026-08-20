@@ -234,3 +234,32 @@
 @utility no-native-cursor {
   cursor: none;
 }
+
+/* Energy path animation used in the From sunlight to power section */
+@keyframes energy-dash-move {
+  to {
+    stroke-dashoffset: -64;
+  }
+}
+
+.energy-dash {
+  animation: energy-dash-move 1.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .energy-dash {
+    animation: none;
+  }
+}
+
+html.no-native-cursor,
+html.no-native-cursor * {
+  cursor: none !important;
+}
+
+@media (hover: none) {
+  html.no-native-cursor,
+  html.no-native-cursor * {
+    cursor: auto !important;
+  }
+}
