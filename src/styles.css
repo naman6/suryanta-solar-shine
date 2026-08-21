@@ -12,6 +12,7 @@
 @theme inline {
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
   --color-primary-deep: var(--primary-deep);
   --color-primary-soft: var(--primary-soft);
   --color-ink: var(--ink);
@@ -19,6 +20,7 @@
   --color-sun-deep: var(--sun-deep);
   --color-ivory: var(--ivory);
   --color-stone: var(--stone);
+
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
