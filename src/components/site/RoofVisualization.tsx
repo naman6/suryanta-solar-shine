@@ -30,7 +30,7 @@ export function RoofVisualization() {
         <div className="grid gap-14 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <Reveal>
             <div
-              className="relative select-none [perspective:1200px]"
+              className="relative select-none overflow-x-clip [perspective:1200px]"
               data-cursor={touch ? undefined : "Place panels"}
             >
               <div
