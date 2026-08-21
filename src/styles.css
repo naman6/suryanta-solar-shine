@@ -164,11 +164,10 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    transform: scaleY(0.97);
-    transform-origin: center;
+    font-weight: 600;
+    letter-spacing: -0.035em;
   }
+
 
   ::selection {
     background: var(--sun);
