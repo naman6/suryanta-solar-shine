@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/suryanta-logo.png";
+import logo from "@/assets/suryanta-logo-tight.png";
 import { Container } from "./Sections";
-import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "@/lib/business";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/business";
 
 const NAV = [
   { label: "Solutions", href: "#solutions" },
+  { label: "Savings", href: "#calculator" },
   { label: "Why us", href: "#why" },
-  { label: "Estimator", href: "#calculator" },
-  { label: "Process", href: "#process" },
   { label: "Reviews", href: "#reviews" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export function SiteHeader() {
@@ -30,28 +30,24 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b border-ivory/10 bg-primary-deep/95 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled ? "shadow-xl shadow-black/30" : ""
+      }`}
+    >
       <Container className="flex h-24 items-center justify-between gap-6">
         <a href="#top" aria-label="Suryanta Energy, home" className="relative z-50">
           <img
             src={logo}
             alt="Suryanta Energy"
-            width={280}
-            height={88}
-            className={`h-14 w-auto transition-[filter] duration-300 ${
-              scrolled && !open ? "" : "brightness-0 invert"
-            }`}
+            width={598}
+            height={300}
+            className="h-[42px] w-auto brightness-0 invert"
           />
         </a>
 
         {/* Centered pill navigation */}
-        <nav
-          className={`absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 rounded-full border px-7 py-3 backdrop-blur-md transition-colors duration-300 md:flex ${
-            scrolled
-              ? "border-border bg-ivory/90 text-foreground"
-              : "border-ivory/20 bg-ink/40 text-ivory"
-          }`}
-        >
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 rounded-full border border-ivory/15 bg-ivory/5 px-7 py-3 text-ivory md:flex">
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="label-mono opacity-80 hover:opacity-100">
               {n.label}
@@ -62,12 +58,12 @@ export function SiteHeader() {
         <div className="hidden items-center gap-4 md:flex">
           <a
             href={PHONE_TEL}
-            className={`label-mono transition-colors ${scrolled ? "text-foreground" : "text-ivory"}`}
+            className="label-mono text-ivory/90 transition-colors hover:text-ivory"
           >
             {PHONE_DISPLAY}
           </a>
           <a
-            href={WHATSAPP_URL}
+            href="#quote"
             className="rounded-full bg-sun px-6 py-3 label-mono text-accent-foreground transition-transform hover:-translate-y-0.5"
           >
             Get a quote
@@ -78,9 +74,7 @@ export function SiteHeader() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className={`relative z-50 flex h-11 w-11 items-center justify-center rounded-full border md:hidden ${
-            scrolled && !open ? "border-border text-foreground" : "border-ivory/30 text-ivory"
-          }`}
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-ivory/30 text-ivory md:hidden"
         >
           <span className="relative block h-3 w-5">
             <span
@@ -111,7 +105,7 @@ export function SiteHeader() {
           ))}
           <div className="mt-10 flex flex-col gap-3">
             <a
-              href={WHATSAPP_URL}
+              href="#quote"
               onClick={() => setOpen(false)}
               className="rounded-full bg-sun px-6 py-4 text-center label-mono text-accent-foreground"
             >

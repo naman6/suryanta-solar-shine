@@ -60,7 +60,7 @@ export function SectionHeading({
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {eyebrow ? (
-        <Eyebrow className={invert ? "text-accent" : "text-muted-foreground"}>{eyebrow}</Eyebrow>
+        <Eyebrow className={invert ? "text-accent-light" : "text-muted-foreground"}>{eyebrow}</Eyebrow>
       ) : null}
       <h2
         className={`mt-5 text-balance-tight text-[clamp(2.4rem,6vw,5rem)] ${invert ? "text-primary-foreground" : "text-foreground"}`}

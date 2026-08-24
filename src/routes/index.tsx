@@ -2,13 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Container, Eyebrow, Reveal, SectionHeading } from "@/components/site/Sections";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { CustomCursor } from "@/components/site/CustomCursor";
 import { Hero } from "@/components/site/Hero";
-import { EnergyFlow } from "@/components/site/EnergyFlow";
 import { Solutions } from "@/components/site/Solutions";
-import { RoofVisualization } from "@/components/site/RoofVisualization";
-import { Metrics } from "@/components/site/Metrics";
 import { Calculator } from "@/components/site/Calculator";
+import { LeadForm } from "@/components/site/LeadForm";
+import { Metrics } from "@/components/site/Metrics";
 import { Process } from "@/components/site/Process";
 import { Testimonials } from "@/components/site/Testimonials";
 import {
@@ -85,18 +83,17 @@ const FAQS = [
 function Home() {
   return (
     <div className="min-h-screen bg-ivory">
-      <CustomCursor />
       <SiteHeader />
 
       <main>
         <Hero />
-        <EnergyFlow />
         <Solutions />
-        <RoofVisualization />
+        <Calculator />
+        <LeadForm />
         <Metrics />
 
         {/* Engineering standards */}
-        <section className="border-t border-border bg-ivory py-24 md:py-32">
+        <section id="standards" className="scroll-mt-24 border-t border-border bg-ivory py-24 md:py-32">
           <Container className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <Reveal>
               <img
@@ -132,7 +129,6 @@ function Home() {
           </Container>
         </section>
 
-        <Calculator />
         <Process />
         <Testimonials />
 
@@ -166,7 +162,7 @@ function Home() {
           <Container>
             <h2 className="max-w-4xl text-balance-tight text-[clamp(2.6rem,7.5vw,6.5rem)]">
               Ready to generate
-              <span className="block text-accent">your own power?</span>
+              <span className="block text-accent-light">your own power?</span>
             </h2>
 
             <div className="mt-16 grid gap-12 border-t border-primary-foreground/15 pt-12 md:grid-cols-3">
@@ -181,7 +177,7 @@ function Home() {
                   </a>
                   <a
                     href={PHONE_TEL}
-                    className="border border-primary-foreground/25 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] transition-colors hover:border-accent hover:text-accent"
+                    className="border border-primary-foreground/25 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] transition-colors hover:border-accent-light hover:text-accent-light"
                   >
                     Call {PHONE_DISPLAY}
                   </a>

@@ -1,5 +1,5 @@
 import { Container } from "./Sections";
-import logo from "@/assets/suryanta-logo.png";
+import logo from "@/assets/suryanta-logo-tight.png";
 import { ADDRESS, MAPS_URL, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "@/lib/business";
 
 export function SiteFooter() {
@@ -12,13 +12,12 @@ export function SiteFooter() {
               <img
                 src={logo}
                 alt="Suryanta Energy logo"
-                width={320}
-                height={320}
-                className="h-14 w-auto mix-blend-screen"
+                width={598}
+                height={300}
+                className="h-[42px] w-auto mix-blend-screen"
               />
-              <span className="font-display text-2xl">Suryanta Energy</span>
             </div>
-            <p className="mt-2 font-display text-lg text-accent">
+            <p className="mt-2 font-display text-lg text-accent-light">
               The best solar panel company in Jaipur
             </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
@@ -28,7 +27,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-light">
               Explore
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/75">
@@ -61,7 +60,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-light">
               Reach us
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-primary-foreground/75">

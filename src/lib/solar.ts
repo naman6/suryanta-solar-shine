@@ -1,6 +1,6 @@
 /**
  * Indicative rooftop solar estimation used by the calculator and the roof
- * visualisation. These are planning assumptions, not quoted figures — every
+ * visualisation. These are planning assumptions, not quoted figures. Every
  * real number comes from a free on site survey.
  */
 export const RATE_PER_UNIT = 8.5; // ₹ per unit, typical Jaipur slab

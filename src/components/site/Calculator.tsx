@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { Container, Reveal, SectionHeading } from "./Sections";
 import { CITIES, PROPERTY_TYPES, estimate, inr, type PropertyType } from "@/lib/solar";
-import { WHATSAPP_URL } from "@/lib/business";
 
 export function Calculator() {
   const [bill, setBill] = useState(6000);
@@ -92,7 +91,7 @@ export function Calculator() {
 
           {/* Results */}
           <div className="bg-primary p-8 text-primary-foreground sm:p-12">
-            <p className="eyebrow text-accent">Indicative plan</p>
+            <p className="eyebrow text-accent-light">Indicative plan</p>
             <dl className="mt-8 divide-y divide-primary-foreground/15 border-y border-primary-foreground/15">
               {[
                 ["Recommended system size", `${est.sizeKw} kW`],
@@ -109,7 +108,7 @@ export function Calculator() {
             </dl>
 
             <a
-              href={WHATSAPP_URL}
+              href="#quote"
               className="mt-10 inline-flex w-full items-center justify-center gap-3 bg-sun px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent-foreground transition-transform hover:-translate-y-0.5"
             >
               Get my solar plan →

@@ -60,7 +60,7 @@ export function Solutions() {
             title={
               <>
                 Built for
-                <span className="block text-accent">the Indian sun.</span>
+                <span className="block text-accent-light">the Indian sun.</span>
               </>
             }
             invert
@@ -72,7 +72,11 @@ export function Solutions() {
             {SOLUTIONS.map((s, i) => {
               const on = i === active;
               return (
-                <li key={s.id} id={s.id} className="scroll-mt-28 border-b border-primary-foreground/15">
+                <li
+                  key={s.id}
+                  id={s.id}
+                  className="scroll-mt-28 border-b border-primary-foreground/15"
+                >
                   <button
                     type="button"
                     onMouseEnter={() => setActive(i)}
@@ -84,7 +88,7 @@ export function Solutions() {
                     <span className="flex items-baseline gap-6">
                       <span className="eyebrow text-primary-foreground/45">{s.n}</span>
                       <span
-                        className={`font-display text-[clamp(2rem,5vw,3.6rem)] leading-none transition-colors ${on ? "text-accent" : "text-primary-foreground/70"}`}
+                        className={`font-display text-[clamp(2rem,5vw,3.6rem)] leading-none transition-colors ${on ? "text-accent-light" : "text-primary-foreground/70"}`}
                       >
                         {s.title}
                       </span>
@@ -112,7 +116,7 @@ export function Solutions() {
             <li className="pt-8">
               <a
                 href={WHATSAPP_URL}
-                className="inline-flex items-center gap-3 border border-primary-foreground/25 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] transition-colors hover:border-accent hover:text-accent"
+                className="inline-flex items-center gap-3 border border-primary-foreground/25 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] transition-colors hover:border-accent-light hover:text-accent-light"
               >
                 Discuss your property →
               </a>
@@ -136,7 +140,7 @@ export function Solutions() {
               />
             ))}
             <span className="absolute bottom-5 left-5 eyebrow bg-ink/60 px-3 py-2 text-ivory backdrop-blur-sm">
-              {current.n} — {current.title}
+              {current.n} · {current.title}
             </span>
           </div>
         </div>

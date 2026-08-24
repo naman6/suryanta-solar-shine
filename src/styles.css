@@ -19,8 +19,8 @@
   --color-sun: var(--sun);
   --color-sun-deep: var(--sun-deep);
   --color-ivory: var(--ivory);
+  --color-ivory-soft: var(--ivory-soft);
   --color-stone: var(--stone);
-
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -43,6 +43,9 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-light: var(--accent-light);
+  --color-brand: var(--sun);
+  --color-brand-deep: var(--sun-deep);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -70,9 +73,11 @@
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-
   /* Core surfaces */
   --ivory: oklch(0.972 0.008 90);
+  /* One clear step below ivory, for a secondary headline line on dark photos.
+     Anything above 0.88 reads as an accident rather than a deliberate tone. */
+  --ivory-soft: oklch(0.8 0.007 90);
   --stone: oklch(0.925 0.008 85);
   --ink: oklch(0.185 0.008 80);
 
@@ -83,17 +88,18 @@
   --popover: oklch(0.988 0.005 90);
   --popover-foreground: oklch(0.185 0.008 80);
 
-  /* Charcoal is the primary structural colour */
-  --primary: oklch(0.235 0.01 80);
-  --primary-foreground: oklch(0.972 0.008 90);
-  --primary-deep: oklch(0.145 0.008 80);
-  --primary-soft: oklch(0.93 0.009 85);
+  /* Charcoal, cooled toward the brand blue, is the primary structural colour */
+  --primary: oklch(0.25 0.03 262);
+  --primary-foreground: oklch(0.975 0.006 250);
+  --primary-deep: oklch(0.17 0.025 264);
+  --primary-soft: oklch(0.93 0.012 255);
 
-  /* Sunlight */
-  --sun: oklch(0.84 0.164 84);
-  --sun-deep: oklch(0.72 0.152 62);
-  --accent: oklch(0.84 0.164 84);
-  --accent-foreground: oklch(0.2 0.03 70);
+  /* Suryanta cobalt blue — matches the logo, used for accents and CTAs */
+  --sun: oklch(0.5 0.16 258);
+  --sun-deep: oklch(0.4 0.14 260);
+  --accent: oklch(0.5 0.16 258);
+  --accent-foreground: oklch(0.985 0.004 240);
+  --accent-light: oklch(0.72 0.13 252);
 
   --secondary: oklch(0.94 0.008 88);
   --secondary-foreground: oklch(0.25 0.01 80);
@@ -103,9 +109,9 @@
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.885 0.008 85);
   --input: oklch(0.885 0.008 85);
-  --ring: oklch(0.84 0.164 84);
-  --chart-1: oklch(0.84 0.164 84);
-  --chart-2: oklch(0.72 0.152 62);
+  --ring: oklch(0.5 0.16 258);
+  --chart-1: oklch(0.5 0.16 258);
+  --chart-2: oklch(0.72 0.13 252);
   --chart-3: oklch(0.55 0.05 140);
   --chart-4: oklch(0.35 0.01 80);
   --chart-5: oklch(0.62 0.02 80);
@@ -116,10 +122,12 @@
   --sidebar-accent: oklch(0.94 0.008 88);
   --sidebar-accent-foreground: oklch(0.235 0.01 80);
   --sidebar-border: oklch(0.885 0.008 85);
-  --sidebar-ring: oklch(0.84 0.164 84);
+  --sidebar-ring: oklch(0.5 0.16 258);
 
-  --shadow-soft: 0 1px 2px oklch(0.185 0.008 80 / 0.05), 0 18px 40px -28px oklch(0.185 0.008 80 / 0.35);
-  --shadow-lift: 0 2px 4px oklch(0.185 0.008 80 / 0.06), 0 40px 80px -40px oklch(0.185 0.008 80 / 0.45);
+  --shadow-soft:
+    0 1px 2px oklch(0.185 0.008 80 / 0.05), 0 18px 40px -28px oklch(0.185 0.008 80 / 0.35);
+  --shadow-lift:
+    0 2px 4px oklch(0.185 0.008 80 / 0.06), 0 40px 80px -40px oklch(0.185 0.008 80 / 0.45);
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -136,11 +144,11 @@
   --secondary-foreground: oklch(0.972 0.008 90);
   --muted: oklch(0.24 0.008 80);
   --muted-foreground: oklch(0.7 0.012 80);
-  --accent: oklch(0.84 0.164 84);
-  --accent-foreground: oklch(0.2 0.03 70);
+  --accent: oklch(0.6 0.15 256);
+  --accent-foreground: oklch(0.985 0.004 240);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.84 0.164 84);
+  --ring: oklch(0.6 0.15 256);
 }
 
 @layer base {
@@ -167,7 +175,6 @@
     font-weight: 600;
     letter-spacing: -0.035em;
   }
-
 
   ::selection {
     background: var(--sun);
@@ -260,6 +267,42 @@
 
 @media (prefers-reduced-motion: reduce) {
   .energy-dash {
+    animation: none;
+  }
+}
+
+/* Idle halo on the primary hero call to action. Built from box-shadow alone so
+   the glow paints behind the button: a pseudo-element would either sit on top
+   of the label or, with a negative z-index, fall behind the hero background. */
+@keyframes cta-halo {
+  0% {
+    box-shadow:
+      0 0 6px 0 color-mix(in srgb, var(--sun) 50%, transparent),
+      0 0 22px 0 color-mix(in srgb, var(--sun) 24%, transparent);
+  }
+  55%,
+  100% {
+    box-shadow:
+      0 0 6px 22px color-mix(in srgb, var(--sun) 0%, transparent),
+      0 0 26px 4px color-mix(in srgb, var(--sun) 10%, transparent);
+  }
+}
+
+.cta-pulse {
+  box-shadow: 0 0 22px 0 color-mix(in srgb, var(--sun) 18%, transparent);
+  animation: cta-halo 3.2s var(--ease-out-soft) infinite;
+}
+
+/* Once the pointer arrives the nudge has done its job, so settle into a
+   steady glow rather than competing with the hover lift. */
+.cta-pulse:hover,
+.cta-pulse:focus-visible {
+  animation: none;
+  box-shadow: 0 0 30px 3px color-mix(in srgb, var(--sun) 38%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-pulse {
     animation: none;
   }
 }
