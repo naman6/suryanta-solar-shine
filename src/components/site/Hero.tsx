@@ -11,13 +11,23 @@ import ksolare from "@/assets/brands/ksolare.png";
  * Component brands Suryanta builds with. Heights are set per logo rather than
  * shared: Tata Power is a stacked mark and Panasonic a thin wordmark, so a
  * single height would make their lettering look wildly different in size.
+ *
+ * Panasonic is sized by its rendered WIDTH, not its height. At a 6.7:1 aspect
+ * ratio it was only 24px tall yet 161px wide, half again as wide as anything
+ * else in the row, so it read as oversized despite being the shortest logo.
+ * 18px puts it at ~121px, in line with Waaree and K Solare.
+ *
+ * `nudge` is an optical correction, not a layout fix. Centring each logo on its
+ * own bounding box leaves the lettering off a shared line, because Waaree packs
+ * a tagline under its wordmark and K Solare carries a sun emblem above the K.
+ * Waaree and Panasonic therefore sat high, K Solare low. Do not "tidy" these away.
  */
-const BRANDS = [
-  { src: waaree, name: "Waaree", h: "h-6 sm:h-7" },
+const BRANDS: { src: string; name: string; h: string; nudge?: string }[] = [
+  { src: waaree, name: "Waaree", h: "h-6 sm:h-7", nudge: "translate-y-[4px]" },
   { src: adani, name: "Adani", h: "h-6 sm:h-7" },
   { src: tataPower, name: "Tata Power", h: "h-11 sm:h-12" },
-  { src: panasonic, name: "Panasonic", h: "h-5 sm:h-6" },
-  { src: ksolare, name: "K Solare", h: "h-9 sm:h-10" },
+  { src: panasonic, name: "Panasonic", h: "h-[15px] sm:h-[18px]", nudge: "translate-y-[3px]" },
+  { src: ksolare, name: "K Solare", h: "h-9 sm:h-10", nudge: "-translate-y-[2px]" },
 ];
 
 export function Hero() {
@@ -37,8 +47,8 @@ export function Hero() {
         className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink via-ink/70 to-transparent"
       />
 
-      <Container className="relative flex min-h-[100svh] flex-col pb-8 pt-24 sm:pt-28">
-        <div className="flex flex-1 flex-col items-center justify-center py-6 text-center">
+      <Container className="relative flex min-h-[100svh] flex-col pb-6 pt-32 sm:pt-40">
+        <div className="flex flex-1 flex-col items-center justify-center pb-6 text-center">
           <h1 className="max-w-5xl text-[clamp(2.1rem,4.9vw,3.9rem)] leading-[1.08] text-ivory">
             The sun already visits your roof.
             <span className="block text-ivory-soft">Put it to work.</span>
@@ -54,7 +64,7 @@ export function Hero() {
               href="#quote"
               className="cta-pulse group inline-flex items-center justify-center gap-3 rounded-full bg-sun px-8 py-4 label-mono text-accent-foreground transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5"
             >
-              Get a free quote
+              Book a free site visit
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                 →
               </span>
@@ -71,7 +81,7 @@ export function Hero() {
             href={REVIEWS_URL}
             target="_blank"
             rel="noreferrer"
-            className="mt-6 eyebrow text-ivory/55 underline-offset-8 hover:text-ivory hover:underline"
+            className="mt-4 eyebrow text-ivory/55 underline-offset-8 hover:text-ivory hover:underline"
           >
             ★ Rated {GOOGLE_RATING} by {GOOGLE_REVIEW_COUNT} customers on Google
           </a>
@@ -89,7 +99,7 @@ export function Hero() {
                   src={b.src}
                   alt={`${b.name} logo`}
                   loading="lazy"
-                  className={`${b.h} w-auto opacity-80 transition-opacity duration-300 hover:opacity-100`}
+                  className={`${b.h} ${b.nudge ?? ""} w-auto opacity-80 transition-opacity duration-300 hover:opacity-100`}
                 />
               </li>
             ))}

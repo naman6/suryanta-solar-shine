@@ -8,7 +8,9 @@ export function Container({
   children: ReactNode;
   className?: string;
 }) {
-  return <div className={`mx-auto w-full max-w-[88rem] px-6 sm:px-10 ${className}`}>{children}</div>;
+  return (
+    <div className={`mx-auto w-full max-w-[88rem] px-6 sm:px-10 ${className}`}>{children}</div>
+  );
 }
 
 /** One purposeful reveal primitive used across the page. */
@@ -50,17 +52,33 @@ export function SectionHeading({
   subtitle,
   align = "left",
   invert = false,
+  wide = false,
 }: {
   eyebrow?: string;
   title: ReactNode;
   subtitle?: string;
   align?: "left" | "center";
   invert?: boolean;
+  /**
+   * Releases the 3xl width cap so a long title can hold one line at the full
+   * display size. For sections whose body has to share one screen with the
+   * heading, such as the estimator: at 5rem inside a 48rem cap that title takes
+   * two lines and costs about 110px, which pushes the panel below the fold.
+   * Unconstrained the title needs roughly 13em of width, allowing for the
+   * -0.035em tracking on h2, which clears every viewport at or above about
+   * 640px. Narrower than that it wraps, and such layouts are stacked anyway.
+   * The subtitle keeps its own max-w-xl, so it is unaffected.
+   */
+  wide?: boolean;
 }) {
   return (
-    <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+    <div
+      className={`${wide ? "max-w-none" : "max-w-3xl"} ${align === "center" ? "mx-auto text-center" : ""}`}
+    >
       {eyebrow ? (
-        <Eyebrow className={invert ? "text-accent-light" : "text-muted-foreground"}>{eyebrow}</Eyebrow>
+        <Eyebrow className={invert ? "text-accent-light" : "text-muted-foreground"}>
+          {eyebrow}
+        </Eyebrow>
       ) : null}
       <h2
         className={`mt-5 text-balance-tight text-[clamp(2.4rem,6vw,5rem)] ${invert ? "text-primary-foreground" : "text-foreground"}`}

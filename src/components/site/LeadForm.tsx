@@ -6,7 +6,7 @@ import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/business";
 const WA_NUMBER = PHONE_TEL.replace("tel:+", "");
 
 const ASSURANCES = [
-  "Free site survey and system design",
+  "Survey and system design by our own engineers, at no cost",
   "PM Surya Ghar subsidy filed for you",
   "Net metering and DISCOM paperwork handled",
   "No obligation, just a real number and no sales pitch",
@@ -21,7 +21,7 @@ export function LeadForm() {
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const text = `Hi Suryanta Energy, I'd like a free rooftop solar quote.\n\nName: ${name}\nPhone: ${phone}\nMonthly bill: ${bill ? "₹" + bill : "Not specified"}\nCity: ${city}`;
+    const text = `Hi Suryanta Energy, I'd like to book a free rooftop solar site visit.\n\nName: ${name}\nPhone: ${phone}\nMonthly bill: ${bill ? "₹" + bill : "Not specified"}\nCity: ${city}`;
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
     setSent(true);
@@ -38,14 +38,14 @@ export function LeadForm() {
     >
       <Container className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center">
         <div>
-          <p className="eyebrow text-accent-light">Free quote</p>
+          <p className="eyebrow text-accent-light">Free site visit</p>
           <h2 className="mt-5 text-balance-tight text-[clamp(2.4rem,5.5vw,4.5rem)]">
-            Get your solar plan
+            Book your site visit
             <span className="block text-primary-foreground/60">in one message.</span>
           </h2>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-primary-foreground/70">
-            Send us your details and last electricity bill. We come back with a sized system,
-            subsidy estimate and payback period, usually the same day.
+            Send us your details and we fix a time to see your roof. You get a sized system, subsidy
+            estimate and payback period, usually the same day.
           </p>
 
           <ul className="mt-8 space-y-3">
