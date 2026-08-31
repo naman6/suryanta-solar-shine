@@ -1,22 +1,17 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "@tanstack/react-router";
 import logo from "@/assets/suryanta-logo-tight.png";
 import { Container } from "./Sections";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/business";
 
 const NAV = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Savings", href: "#calculator" },
-  { label: "Why us", href: "#why" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "/" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "About", href: "/about" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Contact", href: "/contact" },
 ];
 
-/**
- * The three line menu button. Rendered twice, once in the full bar over the hero
- * and once in the floating cluster below it, so it needs to carry its own colour
- * scheme: the cluster floats over light sections where ivory on transparent
- * would be invisible.
- */
 function MenuButton({
   open,
   onToggle,
@@ -49,13 +44,19 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [pastHero, setPastHero] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
+    if (!isHome) {
+      setPastHero(false);
+      setScrolled(true);
+      return;
+    }
+
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 80);
-      // Hand over to the floating cluster as the hero leaves, so every section
-      // below gets the full viewport height instead of losing 96px to the bar.
       const heroHeight = document.getElementById("top")?.offsetHeight ?? window.innerHeight;
       setPastHero(y > heroHeight - 120);
     };
@@ -66,7 +67,7 @@ export function SiteHeader() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -76,17 +77,18 @@ export function SiteHeader() {
   }, [open]);
 
   const toggle = () => setOpen((v) => !v);
+  const ctaHref = isHome ? "#quote" : "/contact";
 
   return (
     <>
-      {/* Full bar, shown over the hero only */}
+      {/* Full bar header */}
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b border-ivory/10 bg-primary-deep/95 backdrop-blur-md transition-[transform,opacity,visibility,box-shadow] duration-500 ${
           scrolled ? "shadow-xl shadow-black/30" : ""
-        } ${pastHero ? "invisible -translate-y-full opacity-0" : "visible translate-y-0 opacity-100"}`}
+        } ${isHome && pastHero ? "invisible -translate-y-full opacity-0" : "visible translate-y-0 opacity-100"}`}
       >
         <Container className="flex h-24 items-center justify-between gap-6">
-          <a href="#top" aria-label="Suryanta Energy, home" className="relative z-50">
+          <Link to="/" aria-label="Suryanta Energy, home" className="relative z-50">
             <img
               src={logo}
               alt="Suryanta Energy"
@@ -94,20 +96,17 @@ export function SiteHeader() {
               height={300}
               className="h-[42px] w-auto brightness-0 invert"
             />
-          </a>
+          </Link>
 
-          {/*
-            Centred pill navigation. It is absolutely positioned, so it does not
-            reserve space in the flex row and can collide with the phone plus CTA
-            group on its right. The pill is ~431px wide and the right group ~325px,
-            so the two only clear each other above roughly 1200px. Hence xl, not md:
-            below that width the menu button takes over.
-          */}
           <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 rounded-full border border-ivory/15 bg-ivory/5 px-7 py-3 text-ivory xl:flex">
             {NAV.map((n) => (
-              <a key={n.href} href={n.href} className="label-mono opacity-80 hover:opacity-100">
+              <Link
+                key={n.href}
+                to={n.href}
+                className="label-mono opacity-80 transition-opacity hover:opacity-100 [&.active]:opacity-100 [&.active]:text-accent-light"
+              >
                 {n.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -118,12 +117,21 @@ export function SiteHeader() {
             >
               {PHONE_DISPLAY}
             </a>
-            <a
-              href="#quote"
-              className="hidden rounded-full bg-sun px-6 py-3 label-mono text-accent-foreground transition-transform hover:-translate-y-0.5 md:inline-flex"
-            >
-              Book a site visit
-            </a>
+            {isHome ? (
+              <a
+                href="#quote"
+                className="hidden rounded-full bg-sun px-6 py-3 label-mono text-accent-foreground transition-transform hover:-translate-y-0.5 md:inline-flex"
+              >
+                Book a site visit
+              </a>
+            ) : (
+              <Link
+                to="/contact"
+                className="hidden rounded-full bg-sun px-6 py-3 label-mono text-accent-foreground transition-transform hover:-translate-y-0.5 md:inline-flex"
+              >
+                Book a site visit
+              </Link>
+            )}
             <MenuButton
               open={open}
               onToggle={toggle}
@@ -133,32 +141,30 @@ export function SiteHeader() {
         </Container>
       </header>
 
-      {/*
-        Floating cluster, shown below the hero. It replaces the bar so sections
-        keep their full height, and it keeps the one action that matters on screen
-        at all times rather than trading the CTA away for the extra space.
-      */}
-      <div
-        className={`fixed right-4 top-4 z-50 flex items-center gap-3 transition-[transform,opacity,visibility] duration-500 sm:right-6 sm:top-6 ${
-          pastHero ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"
-        }`}
-      >
-        <a
-          href="#quote"
-          className={`rounded-full bg-sun px-6 py-3 label-mono text-accent-foreground shadow-lg shadow-black/25 transition-[transform,opacity] hover:-translate-y-0.5 ${
-            open ? "pointer-events-none opacity-0" : "opacity-100"
+      {/* Floating cluster (home page only, below hero) */}
+      {isHome && (
+        <div
+          className={`fixed right-4 top-4 z-50 flex items-center gap-3 transition-[transform,opacity,visibility] duration-500 sm:right-6 sm:top-6 ${
+            pastHero ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"
           }`}
         >
-          Book a site visit
-        </a>
-        <MenuButton
-          open={open}
-          onToggle={toggle}
-          className="border border-ivory/20 bg-primary-deep/90 text-ivory shadow-lg shadow-black/25 backdrop-blur-md"
-        />
-      </div>
+          <a
+            href="#quote"
+            className={`rounded-full bg-sun px-6 py-3 label-mono text-accent-foreground shadow-lg shadow-black/25 transition-[transform,opacity] hover:-translate-y-0.5 ${
+              open ? "pointer-events-none opacity-0" : "opacity-100"
+            }`}
+          >
+            Book a site visit
+          </a>
+          <MenuButton
+            open={open}
+            onToggle={toggle}
+            className="border border-ivory/20 bg-primary-deep/90 text-ivory shadow-lg shadow-black/25 backdrop-blur-md"
+          />
+        </div>
+      )}
 
-      {/* Full screen menu, the only navigation below xl and below the hero */}
+      {/* Full screen mobile menu */}
       <div
         className={`fixed inset-0 z-40 bg-ink text-ivory transition-[opacity,visibility] duration-300 ${
           open ? "visible opacity-100" : "invisible opacity-0"
@@ -166,23 +172,33 @@ export function SiteHeader() {
       >
         <Container className="flex h-full flex-col justify-center gap-1 pb-16">
           {NAV.map((n) => (
-            <a
+            <Link
               key={n.href}
-              href={n.href}
+              to={n.href}
               onClick={() => setOpen(false)}
               className="border-b border-ivory/15 py-5 font-display text-3xl"
             >
               {n.label}
-            </a>
+            </Link>
           ))}
           <div className="mt-10 flex flex-col gap-3">
-            <a
-              href="#quote"
-              onClick={() => setOpen(false)}
-              className="rounded-full bg-sun px-6 py-4 text-center label-mono text-accent-foreground"
-            >
-              Book a free site visit
-            </a>
+            {isHome ? (
+              <a
+                href="#quote"
+                onClick={() => setOpen(false)}
+                className="rounded-full bg-sun px-6 py-4 text-center label-mono text-accent-foreground"
+              >
+                Book a free site visit
+              </a>
+            ) : (
+              <Link
+                to="/contact"
+                onClick={() => setOpen(false)}
+                className="rounded-full bg-sun px-6 py-4 text-center label-mono text-accent-foreground"
+              >
+                Book a free site visit
+              </Link>
+            )}
             <a href={PHONE_TEL} className="py-2 text-center label-mono text-ivory/80">
               {PHONE_DISPLAY}
             </a>

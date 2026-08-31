@@ -13,7 +13,7 @@ const SOLUTIONS = [
     image: heroRooftop,
     copy: "Systems sized around household consumption, available shadow free roof area and long term energy needs.",
     points: [
-      "1 kW to 10 kW systems",
+      "Custom capacity systems built to your load",
       "PM Surya Ghar subsidy assistance",
       "Net metering handled end to end",
     ],

@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Container } from "./Sections";
 import logo from "@/assets/suryanta-logo-tight.png";
 import { ADDRESS, MAPS_URL, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "@/lib/business";
@@ -6,16 +7,18 @@ export function SiteFooter() {
   return (
     <footer className="bg-primary-deep text-primary-foreground">
       <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr]">
-          <div>
+        <div className="grid gap-12 md:grid-cols-4">
+          <div className="md:col-span-1">
             <div className="flex items-center gap-3">
-              <img
-                src={logo}
-                alt="Suryanta Energy logo"
-                width={598}
-                height={300}
-                className="h-[42px] w-auto mix-blend-screen"
-              />
+              <Link to="/">
+                <img
+                  src={logo}
+                  alt="Suryanta Energy logo"
+                  width={598}
+                  height={300}
+                  className="h-[42px] w-auto mix-blend-screen"
+                />
+              </Link>
             </div>
             <p className="mt-2 font-display text-lg text-accent-light">
               The best solar panel company in Jaipur
@@ -28,33 +31,56 @@ export function SiteFooter() {
 
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-light">
-              Explore
+              Solutions
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/75">
               <li>
-                <a href="#homes" className="hover:text-primary-foreground">
-                  Home solar
-                </a>
+                <Link to="/solutions" className="hover:text-primary-foreground">
+                  Home Solar
+                </Link>
               </li>
               <li>
-                <a href="#societies" className="hover:text-primary-foreground">
-                  Housing societies
-                </a>
+                <Link to="/solutions" className="hover:text-primary-foreground">
+                  Housing Societies
+                </Link>
               </li>
               <li>
-                <a href="#commercial" className="hover:text-primary-foreground">
-                  Commercial &amp; industrial
-                </a>
+                <Link to="/solutions" className="hover:text-primary-foreground">
+                  Commercial &amp; Industrial
+                </Link>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-primary-foreground">
-                  Savings estimator
-                </a>
+                <Link to="/" className="hover:text-primary-foreground">
+                  Savings Estimator
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-light">
+              Company
+            </h3>
+            <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/75">
+              <li>
+                <Link to="/about" className="hover:text-primary-foreground">
+                  About Suryanta
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="hover:text-primary-foreground">
-                  FAQs
-                </a>
+                <Link to="/about" className="hover:text-primary-foreground">
+                  Our 5-Step Process
+                </Link>
+              </li>
+              <li>
+                <Link to="/reviews" className="hover:text-primary-foreground">
+                  Customer Reviews
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-primary-foreground">
+                  Contact &amp; Location
+                </Link>
               </li>
             </ul>
           </div>
@@ -70,7 +96,7 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href={WHATSAPP_URL} className="hover:text-primary-foreground">
+                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-primary-foreground">
                   WhatsApp us
                 </a>
               </li>

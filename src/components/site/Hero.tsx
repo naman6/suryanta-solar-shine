@@ -1,6 +1,6 @@
 import { Container } from "./Sections";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, REVIEWS_URL } from "@/lib/business";
-import heroHouse from "@/assets/hero-house.jpg";
+import heroHouse from "@/assets/hero-new.png";
 import waaree from "@/assets/brands/waaree.png";
 import adani from "@/assets/brands/adani.png";
 import tataPower from "@/assets/brands/tata-power.png";
